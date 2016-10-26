@@ -18,7 +18,7 @@ Graph.prototype.addNode = function(payload) {
     this._curr_id += 1;
   }
   node.id = this._curr_id;
-  node.payload = payload;
+  node.value = payload;
   this.nodes.push(node);
 };
 
@@ -33,9 +33,12 @@ Graph.prototype.addEdge = function(from, to, weight) {
   }
 
   // Handle one to many edges
-  this.edges[from] = this.edges[from] || [];
+  this.edges[from] = this.edges[from] || {};
   // if weight = 0 or null delete the edge
-  this.edges[from][to] = weight || undefined;
+  this.edges[from][to] = weight || 1;
+  if (!weight) {
+    this.edges[from][to] = undefined;
+  }
 };
 
 Graph.prototype.removeEdge = function(from, to) {
@@ -62,6 +65,10 @@ Graph.prototype.walk = function(cb) {
   this.nodes.forEach(function(elem) {
     cb(elem);
   });
+};
+
+Graph.prototype.getEdgesFromNode = function(from) {
+  return this.edges[from];
 };
 
 exports.Graph = Graph;
