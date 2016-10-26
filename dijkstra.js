@@ -13,15 +13,22 @@ var Graph = require('./graph');
  */
 
 var g = new Graph();
-g.addNode();
-g.addNode();
-g.addNode();
-g.addNode();
-g.addNode();
-g.addNode();
-g.addNode();
-g.addNode();
-g.addNode();
+for (var i = 0; i < 16; i+=1) {
+  g.addNode();
+}
+
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
+g.addEdge(0, 1);
 
 var dijkstra = function(Graph, source) {
   var vertex_set = [];

@@ -31,10 +31,19 @@ Graph.prototype.addEdge = function(from, to, weight) {
   if (this.nodes[from] === undefined || this.nodes[to] === undefined) {
     throw Error('from or to are not valid nodes in current graph');
   }
-  this.edges[from] = {
-    to: to,
-    weight: weight
-  };
+
+  // Handle one to many edges
+  this.edges[from] = this.edges[from] || [];
+  // if weight = 0 or null delete the edge
+  this.edges[from][to] = weight || undefined;
+};
+
+Graph.prototype.removeEdge = function(from, to) {
+  this.addEdge(from, to, 0);
+};
+
+Graph.prototype.removeNode = function(from) {
+  this.nodes[from] = undefined;
 };
 
 /**
