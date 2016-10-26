@@ -22,14 +22,19 @@ Graph.prototype.addNode = function(payload) {
   this.nodes.push(node);
 };
 
-Graph.prototype.addEdge = function(from, to) {
+// Weighted graph?
+Graph.prototype.addEdge = function(from, to, weight) {
   if (typeof from !== 'number' || typeof to !== 'number') {
     throw Error('From or to is not number');
   }
+
   if (this.nodes[from] === undefined || this.nodes[to] === undefined) {
     throw Error('from or to are not valid nodes in current graph');
   }
-  this.edges[from] = to;
+  this.edges[from] = {
+    to: to,
+    weight: weight
+  };
 };
 
 /**
