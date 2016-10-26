@@ -13,5 +13,7 @@ params = {
 }
 url = service_url + '?' + urllib.urlencode(params)
 response = json.loads(urllib.urlopen(url).read())
+print response
 for element in response['itemListElement']:
+  """ print element """
   print element['result']['name'] + ' (' + str(element['resultScore']) + ')'
