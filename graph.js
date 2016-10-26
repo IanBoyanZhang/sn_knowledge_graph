@@ -44,6 +44,12 @@ Graph.prototype.peek = function(attr) {
   return this[attr];
 };
 
+Graph.prototype.walk = function(cb) {
+  this.nodes.forEach(function(elem) {
+    cb(elem);
+  });
+};
+
 exports.Graph = Graph;
 
 /**

@@ -5,8 +5,12 @@
  */
 
 var Graph = require('./graph');
-console.log(Graph);
 
-var dijkstra = function() {
+var dijkstra = function(Graph, source) {
+  var vertex_set = [];
 
+  
 };
+
+
+// Testing dijkstra
