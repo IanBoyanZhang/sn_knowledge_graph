@@ -77,7 +77,7 @@ exports.Graph = Graph;
  * test
  *
  */
-var g = new Graph();
+/*var g = new Graph();
 g.addNode();            // 0
 g.addNode();            // 1
 g.addNode();            // 2
@@ -89,3 +89,4 @@ g.addEdge(0, 3);
 g.addEdge(1, 2);
 ret = g.peek('edges');
 console.log(ret);
+*/
